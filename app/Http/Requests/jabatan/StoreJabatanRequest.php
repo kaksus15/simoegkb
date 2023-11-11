@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\jabatan;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreGolonganRequest extends FormRequest
+class StoreJabatanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**

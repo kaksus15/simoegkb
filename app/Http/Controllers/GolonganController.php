@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Golongan;
-use App\Http\Requests\StoreGolonganRequest;
-use App\Http\Requests\UpdateGolonganRequest;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\golongan\StoreGolonganRequest;
+use App\Http\Requests\golongan\UpdateGolonganRequest;
 
 class GolonganController extends Controller
 {
@@ -13,7 +14,13 @@ class GolonganController extends Controller
      */
     public function index()
     {
-        return view('golongan.index');
+        $title = 'Delete Golongan!';
+        $text = "Apakah kamu Yaqin akan menghapus data ini?";
+        confirmDelete($title, $text);
+
+        return view('golongan.index', [
+            'golongan' => Golongan::latest()->get()
+        ]);
     }
 
     /**
@@ -21,7 +28,7 @@ class GolonganController extends Controller
      */
     public function create()
     {
-        //
+        return view('golongan.create');
     }
 
     /**
@@ -29,7 +36,15 @@ class GolonganController extends Controller
      */
     public function store(StoreGolonganRequest $request)
     {
-        //
+        // Ambil Data
+        $data = $request->all();
+
+        // Proses Simpan ke DB
+        Golongan::create($data);
+
+        toast('Data Golongan telah ditambahkan', 'success');
+
+        return to_route('golongan.index');
     }
 
     /**
@@ -37,7 +52,7 @@ class GolonganController extends Controller
      */
     public function show(Golongan $golongan)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -45,7 +60,9 @@ class GolonganController extends Controller
      */
     public function edit(Golongan $golongan)
     {
-        //
+        return view('golongan.edit', [
+            'gol' => $golongan
+        ]);
     }
 
     /**
@@ -53,7 +70,17 @@ class GolonganController extends Controller
      */
     public function update(UpdateGolonganRequest $request, Golongan $golongan)
     {
-        //
+        // get all request from frontsite
+        $data = $request->all();
+
+        // update to database
+        $golongan->update($data);
+
+        // toast sweet alert
+        toast('Data Golongan telah di Update', 'success');
+
+        // redirect to index
+        return to_route('golongan.index');
     }
 
     /**
@@ -61,6 +88,8 @@ class GolonganController extends Controller
      */
     public function destroy(Golongan $golongan)
     {
-        //
+        $golongan->delete();
+        alert()->success('Sukses', 'Data Golongan Berhasil di Hapus');
+        return back();
     }
 }

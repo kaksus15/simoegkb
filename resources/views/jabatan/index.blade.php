@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Data Golongan')
+@section('title', 'Data Jabatan')
 
 @section('contents')
     <!-- Default box -->
     <div class="box box-primary">
         <div class="box-header with-border">
-            <a href="{{ route('golongan.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
+            <a href="{{ route('jabatan.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -19,24 +19,21 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Pangkat</th>
-                        <th>Golongan(s)</th>
+                        <th>Jabatan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($golongan as $gol)
+                    @foreach ($jabatan as $jab)
                         <tr>
                             <td style="width:20px">{{ $loop->iteration }}</td>
-                            <td>{{ $gol->pangkat }}</td>
-                            <td>{{ $gol->golongan }}</td>
+                            <td>{{ $jab->jabatan }}</td>
                             <td style="width:100px" class="d-flex">
+                                <a href="{{ route('jabatan.edit', $jab->id) }}" class="btn btn-success btn-sm">Edit</a>
 
-                                {{-- <a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger" data-confirm-delete="true">Delete</a> --}}
-
-                                <a href="{{ route('golongan.edit', $gol->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                <a href="{{ route('golongan.destroy', $gol->id) }}" class="btn btn-danger btn-sm"
+                                <a href="{{ route('jabatan.destroy', $jab->id) }}" class="btn btn-danger btn-sm"
                                     data-confirm-delete="true">Hapus</a>
+
                             </td>
                         </tr>
                     @endforeach

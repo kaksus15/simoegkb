@@ -31,7 +31,7 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Login untuk menggunakan</p>
+            <p class="login-box-msg">Login untuk menggunakan Aplikasi</p>
 
             <form action="{{ route('login') }}" method="post">
                 @csrf

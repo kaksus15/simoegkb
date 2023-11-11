@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\GolonganController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\GolonganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     // Golongan
     Route::resource('golongan', GolonganController::class);
+    // Jabatan
+    Route::resource('jabatan', JabatanController::class);
+    // Pegawai
+    Route::resource('pegawai', PegawaiController::class);
 });

@@ -58,11 +58,28 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('golongan.index') }}"><i class="fa fa-circle-o"></i> Data Golongan</a></li>
-                    <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Data Jabatan</a></li>
+                    <li><a href="{{ route('jabatan.index') }}"><i class="fa fa-circle-o"></i> Data Jabatan</a></li>
                     {{-- <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
                     <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li> --}}
                 </ul>
             </li>
+
+
+            <li class="active">
+                <a href="{{ route('pegawai.index') }}">
+                    <i class="fa fa-users"></i> <span>Data Pegawai</span>
+                    {{-- <span class="pull-right-container">
+                        <small class="label pull-right bg-red">3</small>
+                    </span> --}}
+                </a>
+            </li>
+
+            {{-- <li class="treeview {{ Request::is('pegawai') ? 'active' : '' }}">
+                <a href="{{ route('pegawai.index') }}">
+                    <i class="fa fa-users"></i> <span>Data Pegawai</span>
+                </a>
+            </li> --}}
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-laptop"></i>
