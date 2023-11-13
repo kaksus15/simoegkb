@@ -47,7 +47,7 @@
                 </a>
             </li> --}}
 
-            <li class="treeview">
+            <li class="treeview {{ Request::is('golongan') || Request::is('jabatan') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-th"></i> <span>Master Data</span>
                     {{-- <i class="fa fa-pie-chart"></i>
@@ -59,57 +59,91 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ route('golongan.index') }}"><i class="fa fa-circle-o"></i> Data Golongan</a></li>
                     <li><a href="{{ route('jabatan.index') }}"><i class="fa fa-circle-o"></i> Data Jabatan</a></li>
-                    {{-- <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                    <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li> --}}
+
                 </ul>
             </li>
 
 
-            <li class="active">
+            <li class="{{ Request::is('pegawai') ? 'active' : '' }}">
                 <a href="{{ route('pegawai.index') }}">
                     <i class="fa fa-users"></i> <span>Data Pegawai</span>
-                    {{-- <span class="pull-right-container">
-                        <small class="label pull-right bg-red">3</small>
-                    </span> --}}
                 </a>
             </li>
 
-            {{-- <li class="treeview {{ Request::is('pegawai') ? 'active' : '' }}">
-                <a href="{{ route('pegawai.index') }}">
-                    <i class="fa fa-users"></i> <span>Data Pegawai</span>
-                </a>
-            </li> --}}
-
-            <li class="treeview">
+            <li class="treeview {{ Request::is('pasangan') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-laptop"></i>
-                    <span>UI Elements</span>
+                    <span>Riwayat Keluarga</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                    <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                    <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                    <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                    <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                    <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                    <li class="treeview {{ Request::is('pasangan') ? 'active' : '' }}"><a
+                            href="{{ route('pasangan.index') }}"><i class="fa fa-circle-o"></i> Suami/Isteri</a></li>
+                    <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Anak</a></li>
+                    <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Orang Tua</a></li>
                 </ul>
             </li>
+
+            <li class="">
+                <a href="{{ route('pendidikan.index') }}">
+                    <i class="fa fa-graduation-cap"></i> <span>Riwayat Pendidikan</span>
+                </a>
+            </li>
+
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-edit"></i> <span>Forms</span>
+                    <i class="fa fa-edit"></i> <span>Kepegawaian</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a>
+                    <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> Pangkat/Golongan</a>
                     </li>
-                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a>
+                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Jabatan</a>
                     </li>
-                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Gaji Berkala</a>
+                    </li>
+                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Diklat</a></li>
+                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Cuti</a></li>
+                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Hukuman</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-print"></i> <span>Laporan</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> Nominatif</a>
+                    </li>
+                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> DUK</a>
+                    </li>
+                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Bezetting</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-gear"></i> <span>Management Access</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> Permission</a>
+                    </li>
+                    <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Role</a>
+                    </li>
+                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Type User</a></li>
+                    <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> User</a></li>
                 </ul>
             </li>
 

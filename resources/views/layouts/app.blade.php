@@ -13,8 +13,15 @@
     <link rel="stylesheet" href="{{ asset('/assets/bower_components/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('/assets/bower_components/Ionicons/css/ionicons.min.css') }}">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('/assets/bower_components/select2/dist/css/select2.min.css') }}">
+
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/assets/css/AdminLTE.min.css') }}">
+
+
 
     <!-- DataTables -->
     <link rel="stylesheet"
@@ -287,8 +294,9 @@
     <script src="{{ asset('/assets/bower_components/fastclick/lib/fastclick.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('/assets/js/adminlte.min.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('/assets/js/demo.js') }}"></script>
+
+    <!-- Select2 -->
+    <script src="{{ asset('/assets/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 
     <!-- DataTables -->
     <script src="{{ asset('/assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
@@ -296,6 +304,9 @@
 
     <script>
         $(function() {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
             $('#example1').DataTable()
             $('#example2').DataTable({
                 'paging': true,

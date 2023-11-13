@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\GolonganController;
+use App\Http\Controllers\PasanganController;
+use App\Http\Controllers\PendidikanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('jabatan', JabatanController::class);
     // Pegawai
     Route::resource('pegawai', PegawaiController::class);
+    // Riwayat Pendidikan
+    Route::resource('pendidikan', PendidikanController::class);
+    // Data Pasangan (Suami/Isteri)
+    Route::resource('pasangan', PasanganController::class);
 });

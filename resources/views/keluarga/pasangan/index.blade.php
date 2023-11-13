@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Data Pegawai')
+@section('title', 'Data Suami/Istri')
 
 @section('contents')
     <!-- Default box -->
     <div class="box box-primary">
         <div class="box-header with-border">
-            <a href="{{ route('pegawai.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
+            <a href="{{ route('pasangan.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -19,35 +19,28 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Foto</th>
-                        <th>NIP</th>
-                        <th>Nama</th>
-                        <th>Jenis Kelamin</th>
+                        <th>Pegawai</th>
+                        <th>Nama Pasangan</th>
+                        <th>No. KTP/NIK</th>
                         <th>TTL</th>
-                        <th>Pangkat/Golongan</th>
+                        <th>Pendidikan</th>
+                        <th>Pekerjaan</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pegawai as $peg)
+                    {{-- @foreach ($pegawai as $peg)
                         <tr>
                             <td style="width:20px">{{ $loop->iteration }}</td>
-                            <td>
 
-                                @if ($peg->image)
-                                    <img src="{{ asset('storage/' . $peg->image) }}" height="80" width="80" />
-                                @else
-                                    <img src="{{ asset('assets/img/profil-pegawai.png') }}" height="80" width="80" />
-                                @endif
-
-                            </td>
                             <td>{{ $peg->nip }}</td>
                             <td>{{ $peg->nama }}</td>
                             <td>{{ $peg->jenis_kelamin }}</td>
                             <td>{{ $peg->tempat_lahir . ', ' . $peg->tanggal_lahir }}</td>
                             <td>{{ $peg->golongan->pangkat . ' - ' . $peg->golongan->golongan }}</td>
                             <td style="width:165px" class="d-flex">
-                                <a href="{{ route('pegawai.edit', $peg->id) }}" class="btn btn-default btn-sm">Detail</a>
+
 
                                 <a href="{{ route('pegawai.edit', $peg->id) }}" class="btn btn-success btn-sm">Edit</a>
 
@@ -56,7 +49,7 @@
 
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>

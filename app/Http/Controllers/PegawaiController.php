@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
-use App\Http\Requests\StorePegawaiRequest;
-use App\Http\Requests\UpdatePegawaiRequest;
+use App\Models\Golongan;
+use App\Http\Requests\pegawai\StorePegawaiRequest;
+use App\Http\Requests\pegawai\UpdatePegawaiRequest;
 
 class PegawaiController extends Controller
 {
@@ -13,7 +14,12 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        //
+
+        $pegawai = Pegawai::with(['golongan'])->latest()->get();
+
+        return view('pegawai.index', [
+            'pegawai' => $pegawai
+        ]);
     }
 
     /**
@@ -21,7 +27,11 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        //
+        $gol = Golongan::all();
+
+        return view('pegawai.create', [
+            'golongan' => $gol
+        ]);
     }
 
     /**
@@ -29,7 +39,24 @@ class PegawaiController extends Controller
      */
     public function store(StorePegawaiRequest $request)
     {
-        //
+
+        // return $request->file('image')->store('profile-image');
+
+        // ddd($request);
+
+        // Ambil Data
+        $data = $request->all();
+
+        if ($request->file('image')) {
+            $data['image'] = $request->file('image')->store('profile-image');
+        }
+
+        // Proses Simpan ke DB
+        Pegawai::create($data);
+
+        toast('Data Pegawai telah ditambahkan', 'success');
+
+        return to_route('pegawai.index');
     }
 
     /**
