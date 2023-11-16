@@ -64,13 +64,14 @@
             </li>
 
 
-            <li class="{{ Request::is('pegawai') ? 'active' : '' }}">
+            <li class="{{ Request::is('pegawai') || Request::is('pegawai/create') ? 'active' : '' }}">
                 <a href="{{ route('pegawai.index') }}">
                     <i class="fa fa-users"></i> <span>Data Pegawai</span>
                 </a>
             </li>
 
-            <li class="treeview {{ Request::is('pasangan') ? 'active' : '' }}">
+            <li
+                class="treeview {{ Request::is('pasangan') || Request::is('pasangan/create') || Request::is('anak') || Request::is('anak/create') || Request::is('orangtua') || Request::is('orangtua/create') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-laptop"></i>
                     <span>Riwayat Keluarga</span>
@@ -79,20 +80,26 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="treeview {{ Request::is('pasangan') ? 'active' : '' }}"><a
-                            href="{{ route('pasangan.index') }}"><i class="fa fa-circle-o"></i> Suami/Isteri</a></li>
-                    <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Anak</a></li>
-                    <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Orang Tua</a></li>
+                    <li class="{{ Request::is('pasangan') || Request::is('pasangan/create') ? 'active' : '' }}"><a
+                            href="{{ route('pasangan.index') }}"><i class="fa fa-circle-o"></i>
+                            Suami/Isteri</a></li>
+                    <li class="{{ Request::is('anak') || Request::is('anak/create') ? 'active' : '' }}"><a
+                            href="{{ route('anak.index') }}"><i class="fa fa-circle-o"></i> Anak</a></li>
+                    <li class="{{ Request::is('orangtua') || Request::is('orangtua/create') ? 'active' : '' }}"> <a
+                            href="{{ route('orangtua.index') }}">
+                            <i class="fa fa-circle-o"></i> Orang Tua</a>
+                    </li>
                 </ul>
             </li>
 
-            <li class="">
+            <li class="{{ Request::is('pendidikan') || Request::is('pendidikan/create') ? 'active' : '' }}">
                 <a href="{{ route('pendidikan.index') }}">
                     <i class="fa fa-graduation-cap"></i> <span>Riwayat Pendidikan</span>
                 </a>
             </li>
 
-            <li class="treeview">
+            <li
+                class="treeview {{ Request::is('riwayatgolongan') || Request::is('riwayatgolongan/create') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-edit"></i> <span>Kepegawaian</span>
                     <span class="pull-right-container">
@@ -100,7 +107,10 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> Pangkat/Golongan</a>
+                    <li
+                        class="{{ Request::is('riwayatgolongan') || Request::is('riwayatgolongan/create') ? 'active' : '' }}">
+                        <a href="{{ route('riwayatgolongan.index') }}"><i class="fa fa-circle-o"></i>
+                            Pangkat/Golongan</a>
                     </li>
                     <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Jabatan</a>
                     </li>

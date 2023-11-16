@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Data Suami/Istri')
+@section('title', 'Data Anak')
 
 @section('contents')
     <!-- Default box -->
     <div class="box box-primary">
         <div class="box-header with-border">
-            <a href="{{ route('pasangan.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
+            <a href="{{ route('anak.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pasangan as $pas)
+                    {{-- @foreach ($pasangan as $pas)
                         <tr>
                             <td style="width:20px">{{ $loop->iteration }}</td>
 
@@ -41,7 +41,7 @@
                             <td>{{ $pas->pendidikan }}</td>
                             <td>{{ $pas->pekerjaan }}</td>
                             <td>{{ $pas->status_hubungan }}</td>
-                            {{-- <td>{{ $pas->golongan->pangkat . ' - ' . $peg->golongan->golongan }}</td> --}}
+
                             <td style="width:165px" class="d-flex">
 
 
@@ -52,7 +52,7 @@
 
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>

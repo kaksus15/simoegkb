@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pendidikan;
-use App\Http\Requests\StorePendidikanRequest;
-use App\Http\Requests\UpdatePendidikanRequest;
+use App\Models\Anak;
+use App\Http\Requests\Anak\StoreAnakRequest;
+use App\Http\Requests\Anak\UpdateAnakRequest;
 
-class PendidikanController extends Controller
+class AnakController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pendidikan.index');
+        return view('keluarga.anak.index');
     }
 
     /**
@@ -27,7 +27,7 @@ class PendidikanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePendidikanRequest $request)
+    public function store(StoreAnakRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class PendidikanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pendidikan $pendidikan)
+    public function show(Anak $anak)
     {
         //
     }
@@ -43,7 +43,7 @@ class PendidikanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pendidikan $pendidikan)
+    public function edit(Anak $anak)
     {
         //
     }
@@ -51,7 +51,7 @@ class PendidikanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePendidikanRequest $request, Pendidikan $pendidikan)
+    public function update(UpdateAnakRequest $request, Anak $anak)
     {
         //
     }
@@ -59,7 +59,7 @@ class PendidikanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pendidikan $pendidikan)
+    public function destroy(Anak $anak)
     {
         //
     }

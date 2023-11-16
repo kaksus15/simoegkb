@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pasangan;
 use App\Http\Requests\StorePasanganRequest;
 use App\Http\Requests\UpdatePasanganRequest;
+use App\Models\Pegawai;
 
 class PasanganController extends Controller
 {
@@ -13,7 +14,9 @@ class PasanganController extends Controller
      */
     public function index()
     {
-        return view('keluarga.pasangan.index');
+        return view('keluarga.pasangan.index', [
+            'pasangan' => Pasangan::all()
+        ]);
     }
 
     /**
@@ -21,7 +24,9 @@ class PasanganController extends Controller
      */
     public function create()
     {
-        return view('keluarga.pasangan.create');
+        return view('keluarga.pasangan.create', [
+            'pegawai' => Pegawai::all()
+        ]);
     }
 
     /**
@@ -29,7 +34,15 @@ class PasanganController extends Controller
      */
     public function store(StorePasanganRequest $request)
     {
-        //
+        // Ambil Data
+        $data = $request->all();
+
+        // Proses Simpan ke DB
+        Pasangan::create($data);
+
+        toast('Data Pasangan telah ditambahkan', 'success');
+
+        return to_route('pasangan.index');
     }
 
     /**

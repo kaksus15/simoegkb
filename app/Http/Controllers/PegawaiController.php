@@ -14,6 +14,9 @@ class PegawaiController extends Controller
      */
     public function index()
     {
+        $title = 'Delete Pegawai!';
+        $text = "Apakah kamu Yaqin akan menghapus data ini?";
+        confirmDelete($title, $text);
 
         $pegawai = Pegawai::with(['golongan'])->latest()->get();
 
@@ -39,10 +42,6 @@ class PegawaiController extends Controller
      */
     public function store(StorePegawaiRequest $request)
     {
-
-        // return $request->file('image')->store('profile-image');
-
-        // ddd($request);
 
         // Ambil Data
         $data = $request->all();
@@ -88,6 +87,8 @@ class PegawaiController extends Controller
      */
     public function destroy(Pegawai $pegawai)
     {
-        //
+        $pegawai->delete();
+        alert()->success('Sukses', 'Data Pegawai Berhasil di Hapus');
+        return back();
     }
 }

@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Golongan;
-
-use Illuminate\Validation\Rule;
+namespace App\Http\Requests\Orangtua;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreGolonganRequest extends FormRequest
+class UpdateOrangtuaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +22,7 @@ class StoreGolonganRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'golongan' => ['required'],
-            'pangkat' => ['required'],
+            //
         ];
     }
 }

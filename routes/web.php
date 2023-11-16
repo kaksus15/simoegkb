@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\Riwayatgolongan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnakController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\GolonganController;
+use App\Http\Controllers\OrangtuaController;
 use App\Http\Controllers\PasanganController;
 use App\Http\Controllers\PendidikanController;
+use App\Http\Controllers\RiwayatgolonganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +41,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('pendidikan', PendidikanController::class);
     // Data Pasangan (Suami/Isteri)
     Route::resource('pasangan', PasanganController::class);
+    // Data Anak
+    Route::resource('anak', AnakController::class);
+    // Data Orang Tua
+    Route::resource('orangtua', OrangtuaController::class);
+    // Data Riwayat Golongan
+    Route::resource('riwayatgolongan', RiwayatgolonganController::class);
 });

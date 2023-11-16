@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\jabatan;
+namespace App\Http\Requests\Jabatan;
 
 use Illuminate\Foundation\Http\FormRequest;
 

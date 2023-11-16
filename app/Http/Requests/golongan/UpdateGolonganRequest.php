@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\golongan;
+namespace App\Http\Requests\Golongan;
 
 use Illuminate\Foundation\Http\FormRequest;
 

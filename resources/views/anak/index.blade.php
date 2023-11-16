@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Data Suami/Istri')
+@section('title', 'Data Golongan')
 
 @section('contents')
     <!-- Default box -->
     <div class="box box-primary">
         <div class="box-header with-border">
-            <a href="{{ route('pasangan.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
+            <a href="{{ route('anak.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -20,39 +20,31 @@
                     <tr>
                         <th>#</th>
                         <th>Pegawai</th>
-                        <th>Nama Pasangan</th>
-                        <th>No. KTP/NIK</th>
-                        <th>TTL</th>
+                        <th>Nama Anak</th>
+                        <th>Nomor KTP</th>
                         <th>Pendidikan</th>
                         <th>Pekerjaan</th>
-                        <th>Status</th>
+                        <th>Pekerjaan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pasangan as $pas)
+                    {{-- @foreach ($golongan as $gol)
                         <tr>
                             <td style="width:20px">{{ $loop->iteration }}</td>
+                            <td>{{ $gol->pangkat }}</td>
+                            <td>{{ $gol->golongan }}</td>
+                            <td style="width:100px" class="d-flex">
 
-                            <td>{{ $pas->pegawai->nama }}</td>
-                            <td>{{ $pas->nama }}</td>
-                            <td>{{ $pas->nik }}</td>
-                            <td>{{ $pas->tempat_lahir . ', ' . $pas->tanggal_lahir }}</td>
-                            <td>{{ $pas->pendidikan }}</td>
-                            <td>{{ $pas->pekerjaan }}</td>
-                            <td>{{ $pas->status_hubungan }}</td>
-                            {{-- <td>{{ $pas->golongan->pangkat . ' - ' . $peg->golongan->golongan }}</td> --}}
-                            <td style="width:165px" class="d-flex">
+                                <a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger"
+                                    data-confirm-delete="true">Delete</a>
 
-
-                                <a href="{{ route('pegawai.edit', $pas->id) }}" class="btn btn-success btn-sm">Edit</a>
-
-                                <a href="{{ route('pegawai.destroy', $pas->id) }}" class="btn btn-danger btn-sm"
+                                <a href="{{ route('golongan.edit', $gol->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                <a href="{{ route('golongan.destroy', $gol->id) }}" class="btn btn-danger btn-sm"
                                     data-confirm-delete="true">Hapus</a>
-
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>
