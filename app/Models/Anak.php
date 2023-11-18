@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Anak extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class);
+    }
 }

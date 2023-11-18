@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use App\Models\Orangtua;
-use App\Http\Requests\StoreOrangtuaRequest;
-use App\Http\Requests\UpdateOrangtuaRequest;
+use App\Http\Requests\Orangtua\StoreOrangtuaRequest;
+use App\Http\Requests\Orangtua\UpdateOrangtuaRequest;
 
 class OrangtuaController extends Controller
 {
@@ -13,7 +14,13 @@ class OrangtuaController extends Controller
      */
     public function index()
     {
-        return view('keluarga.orangtua.index');
+        $title = 'Delete Orang Tua!';
+        $text = "Apakah kamu Yaqin akan menghapus data ini?";
+        confirmDelete($title, $text);
+
+        return view('keluarga.orangtua.index', [
+            'orangtua' => Orangtua::latest()->get()
+        ]);
     }
 
     /**
@@ -21,7 +28,9 @@ class OrangtuaController extends Controller
      */
     public function create()
     {
-        //
+        return view('keluarga.orangtua.create', [
+            'pegawai' => Pegawai::all()
+        ]);
     }
 
     /**
@@ -29,7 +38,15 @@ class OrangtuaController extends Controller
      */
     public function store(StoreOrangtuaRequest $request)
     {
-        //
+        // Ambil Data
+        $data = $request->all();
+
+        // Proses Simpan ke DB
+        Orangtua::create($data);
+
+        toast('Data Orang Tua telah ditambahkan', 'success');
+
+        return to_route('orangtua.index');
     }
 
     /**

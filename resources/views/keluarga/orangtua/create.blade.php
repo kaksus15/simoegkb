@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Data Pasangan')
+@section('title', 'Data Orang Tua')
 
 @section('contents')
 
@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <form class="form-horizontal" action="{{ route('pasangan.store') }}" method="post">
+                <form class="form-horizontal" action="{{ route('orangtua.store') }}" method="post">
                     @csrf
                     <div class="box-body">
 
@@ -38,6 +38,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="" class="col-xs-2 control-label">Status Hubungan</label>
+                            <div class="col-xs-6">
+                                <select class="form-control select2" name="status_hubungan">
+                                    <option selected disabled>Pilih Status</option>
+                                    <option value="Ayah Kandung">Ayah Kandung</option>
+                                    <option value="Ibu Kandung">Ibu Angkat</option>
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <label for="" class="col-sm-2 control-label">NIK</label>
@@ -47,7 +58,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="" class="col-xs-2 control-label">Nama Suami/Isteri</label>
+                            <label for="" class="col-xs-2 control-label">Nama Orang Tua</label>
                             <div class="col-xs-6">
                                 <input type="text" class="form-control" id="" placeholder="Nama" name="nama">
                             </div>
@@ -91,18 +102,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="" class="col-xs-2 control-label">Status Hubungan</label>
-                            <div class="col-xs-6">
-                                <select class="form-control select2" name="status_hubungan">
-                                    <option selected disabled>Pilih Status</option>
-                                    <option value="suami">Suami</option>
-                                    <option value="isteri">Isteri</option>
-                                </select>
-                            </div>
-                        </div>
-
-
                     </div>
 
                     <div class="box-footer text-left">
@@ -118,34 +117,6 @@
                 </form>
 
 
-                <!-- form start -->
-                {{-- <form action="{{ route('pegawai.store') }}" method="post">
-                    @csrf
-                    <div class="box-body">
-
-                        <div class="form-group row @error('golongan') has-error @enderror">
-                            <label for="" class="col-sm-2 col-form-label">Jabatan</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="jabatan" class="form-control" id=""
-                                    placeholder="jabatan" value="{{ old('jabatan') }}">
-                                @error('jabatan')
-                                    <div class="help-block small">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- /.box-body -->
-
-                    <div class="box-footer text-right">
-                        <a href="{{ route('jabatan.index') }}" class="btn btn-default">Batal</a>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form> --}}
             </div>
             <!-- /.box -->
         </div>

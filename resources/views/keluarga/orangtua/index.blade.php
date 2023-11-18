@@ -20,39 +20,39 @@
                     <tr>
                         <th>#</th>
                         <th>Pegawai</th>
-                        <th>Nama Pasangan</th>
+                        <th>Status</th>
+                        <th>Nama Orang Tua</th>
                         <th>No. KTP/NIK</th>
                         <th>TTL</th>
                         <th>Pendidikan</th>
                         <th>Pekerjaan</th>
-                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($pasangan as $pas)
+                    @foreach ($orangtua as $ot)
                         <tr>
                             <td style="width:20px">{{ $loop->iteration }}</td>
 
-                            <td>{{ $pas->pegawai->nama }}</td>
-                            <td>{{ $pas->nama }}</td>
-                            <td>{{ $pas->nik }}</td>
-                            <td>{{ $pas->tempat_lahir . ', ' . $pas->tanggal_lahir }}</td>
-                            <td>{{ $pas->pendidikan }}</td>
-                            <td>{{ $pas->pekerjaan }}</td>
-                            <td>{{ $pas->status_hubungan }}</td>
+                            <td>{{ $ot->pegawai->nama }}</td>
+                            <td>{{ $ot->nama }}</td>
+                            <td>{{ $ot->nik }}</td>
+                            <td>{{ $ot->tempat_lahir . ', ' . $ot->tanggal_lahir }}</td>
+                            <td>{{ $ot->pendidikan }}</td>
+                            <td>{{ $ot->pekerjaan }}</td>
+                            <td>{{ $ot->status_hubungan }}</td>
 
                             <td style="width:165px" class="d-flex">
 
 
-                                <a href="{{ route('pegawai.edit', $pas->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                <a href="{{ route('pegawai.edit', $ot->id) }}" class="btn btn-success btn-sm">Edit</a>
 
-                                <a href="{{ route('pegawai.destroy', $pas->id) }}" class="btn btn-danger btn-sm"
+                                <a href="{{ route('pegawai.destroy', $ot->id) }}" class="btn btn-danger btn-sm"
                                     data-confirm-delete="true">Hapus</a>
 
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>

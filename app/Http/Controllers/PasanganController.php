@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pasangan;
-use App\Http\Requests\StorePasanganRequest;
-use App\Http\Requests\UpdatePasanganRequest;
+use App\Http\Requests\Pasangan\StorePasanganRequest;
+use App\Http\Requests\Pasangan\UpdatePasanganRequest;
 use App\Models\Pegawai;
 
 class PasanganController extends Controller

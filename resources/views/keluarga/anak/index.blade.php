@@ -20,7 +20,7 @@
                     <tr>
                         <th>#</th>
                         <th>Pegawai</th>
-                        <th>Nama Pasangan</th>
+                        <th>Nama Anak</th>
                         <th>No. KTP/NIK</th>
                         <th>TTL</th>
                         <th>Pendidikan</th>
@@ -30,29 +30,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($pasangan as $pas)
+                    @foreach ($anak as $ank)
                         <tr>
                             <td style="width:20px">{{ $loop->iteration }}</td>
 
-                            <td>{{ $pas->pegawai->nama }}</td>
-                            <td>{{ $pas->nama }}</td>
-                            <td>{{ $pas->nik }}</td>
-                            <td>{{ $pas->tempat_lahir . ', ' . $pas->tanggal_lahir }}</td>
-                            <td>{{ $pas->pendidikan }}</td>
-                            <td>{{ $pas->pekerjaan }}</td>
-                            <td>{{ $pas->status_hubungan }}</td>
-
+                            <td>{{ $ank->pegawai->nama }}</td>
+                            <td>{{ $ank->nama }}</td>
+                            <td>{{ $ank->nik }}</td>
+                            <td>{{ $ank->tempat_lahir . ', ' . $ank->tanggal_lahir }}</td>
+                            <td>{{ $ank->pendidikan }}</td>
+                            <td>{{ $ank->pekerjaan }}</td>
+                            <td>{{ $ank->status_hubungan }}</td>
+                            {{-- <td>{{ $pas->golongan->pangkat . ' - ' . $peg->golongan->golongan }}</td> --}}
                             <td style="width:165px" class="d-flex">
 
 
-                                <a href="{{ route('pegawai.edit', $pas->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                <a href="{{ route('anak.edit', $ank->id) }}" class="btn btn-success btn-sm">Edit</a>
 
-                                <a href="{{ route('pegawai.destroy', $pas->id) }}" class="btn btn-danger btn-sm"
+                                <a href="{{ route('anak.destroy', $ank->id) }}" class="btn btn-danger btn-sm"
                                     data-confirm-delete="true">Hapus</a>
 
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>

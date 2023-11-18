@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anak;
+use App\Models\Pegawai;
 use App\Http\Requests\Anak\StoreAnakRequest;
 use App\Http\Requests\Anak\UpdateAnakRequest;
 
@@ -13,7 +14,9 @@ class AnakController extends Controller
      */
     public function index()
     {
-        return view('keluarga.anak.index');
+        return view('keluarga.anak.index', [
+            'anak' => Anak::all()
+        ]);
     }
 
     /**
@@ -21,7 +24,9 @@ class AnakController extends Controller
      */
     public function create()
     {
-        //
+        return view('keluarga.anak.create', [
+            'pegawai' => Pegawai::all()
+        ]);
     }
 
     /**
@@ -29,7 +34,15 @@ class AnakController extends Controller
      */
     public function store(StoreAnakRequest $request)
     {
-        //
+        // Ambil Data
+        $data = $request->all();
+
+        // Proses Simpan ke DB
+        Anak::create($data);
+
+        toast('Data Anak telah ditambahkan', 'success');
+
+        return to_route('anak.index');
     }
 
     /**
